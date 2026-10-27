@@ -1,0 +1,120 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Express - Online Food Delivery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">🍽️ Foodie <span>Express</span></div>
+
+    <input id="search" type="search"
+        placeholder="Search parotta, dosa, biryani..."
+        aria-label="Search food">
+
+    <button type="button" onclick="showCart()">
+        🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+</header>
+
+<section class="hero">
+    <h1>Hot & Delicious Food at Your Door!</h1>
+    <p>Enjoy your favourite South Indian dishes, biryani and cool drinks. Choose your food and order online.</p>
+    <button type="button" onclick="goMenu()">Order Food Now 🍴</button>
+</section>
+
+<div class="layout">
+    <main>
+        <section class="section" id="menuSection">
+            <h2>🔥 Our Delicious Menu</h2>
+
+            <div class="categories" id="categories">
+                <button class="active" data-category="All">All Foods</button>
+                <button data-category="South Indian">South Indian</button>
+                <button data-category="Rice">Rice & Biryani</button>
+                <button data-category="Drinks">Cool Drinks</button>
+            </div>
+
+            <div class="food-grid" id="foodGrid"></div>
+            <p id="noResults" class="empty hidden">No food items found.</p>
+        </section>
+
+        <section class="checkout" id="checkout">
+            <h2>📍 Delivery Details</h2>
+
+            <form id="orderForm">
+                <label for="customerName">Your Name</label>
+                <input id="customerName" required autocomplete="name"
+                    placeholder="Enter your full name">
+
+                <label for="phone">Mobile Number</label>
+                <input id="phone" type="tel" required
+                    pattern="[0-9]{10}" maxlength="10"
+                    autocomplete="tel" placeholder="Enter 10-digit mobile number">
+
+                <label for="address">Delivery Address</label>
+                <textarea id="address" required
+                    autocomplete="street-address"
+                    placeholder="House number, street, area, city"></textarea>
+
+                <label for="payment">Payment Method</label>
+                <select id="payment" required>
+                    <option value="Cash on Delivery">Cash on Delivery</option>
+                    <option value="UPI Demo">UPI (Demo Only)</option>
+                </select>
+
+                <button class="full-btn" type="submit">Place My Order</button>
+            </form>
+
+            <div id="orderResult" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <aside class="cart" id="cart">
+        <h2>🛒 Your Cart</h2>
+
+        <div id="cartItems">
+            <p class="empty">Your cart is empty. Add your favourite food!</p>
+        </div>
+
+        <div class="cart-totals">
+            <div class="total-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₹0</span>
+            </div>
+
+            <div class="total-row">
+                <span>Delivery Fee</span>
+                <span id="delivery">₹0</span>
+            </div>
+
+            <div class="total-row grand-total">
+                <span>Total</span>
+                <span id="total">₹0</span>
+            </div>
+        </div>
+
+        <button type="button" class="full-btn" onclick="goCheckout()">
+            Proceed to Order
+        </button>
+
+        <p class="empty delivery-note">
+            Delivery charge: ₹30 per order.
+        </p>
+    </aside>
+</div>
+
+<footer>
+    <h3>🍽️ Foodie Express</h3>
+    <p>Good Food. Great Taste. Happy Moments!</p>
+    <p>Freshly prepared food for you.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+```
